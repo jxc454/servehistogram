@@ -1,0 +1,14 @@
+{
+  "name": "serve-histogram",
+  "version": "1.0.0",
+  "description": "simple app to read json histogram from disk and expose on port.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jxc454",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
