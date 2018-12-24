@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 const express = require('express')
 const app = express()
 const port = 3000
@@ -6,6 +7,8 @@ const port = 3000
 const datafileName = "/tmp/udpHistogram.json"
 
 app.get('/', nocache, sendData);
+
+app.get('/histogram', nocache, sendHTML);
 
 app.listen(port, () => console.log(`Node listening on port ${port}`))
 
@@ -29,4 +32,8 @@ function sendData(req, res) {
             res.end();
         }
     });
+}
+
+function sendHTML(req, res) {
+    res.sendFile(path.join(__dirname + '/rollingLineChart.html'));
 }
