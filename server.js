@@ -4,8 +4,6 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const datafileName = "/tmp/udpHistogram.json";
-
 app.use(express.static('public'));
 
 app.get('/', nocache, sendData);

@@ -1,13 +1,8 @@
 import {getJSON} from './utils/getJSON';
-import * as d3 from "d3";
+import {makeBarChart} from './makeBarChart'
 
-const url = 'http://localhost:8080/data/udpHistogram.json';
+const url = 'http://localhost:3000';
 
-console.log("hello from index.js.");
+getJSON(url, res => makeBarChart(JSON.parse(res)));
 
-getJSON(url, res => {
-   console.log("in callback");
-   console.log(res);
-});
-
-console.log("after callback.");
+setInterval(() => getJSON(url, res => makeBarChart(JSON.parse(res))), 1000);
