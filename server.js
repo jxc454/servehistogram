@@ -35,5 +35,5 @@ function sendData(req, res) {
 }
 
 function sendHTML(req, res) {
-    res.sendFile(path.join(__dirname + '/barChart.html'));
+    res.sendFile(path.join(__dirname + '/public/barChart.html'));
 }
