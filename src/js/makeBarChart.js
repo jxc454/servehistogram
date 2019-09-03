@@ -1,8 +1,10 @@
 const d3 = require('d3');
+const { zip } = require('lodash');
 
-function makeBarChart(histoData){
+function makeBarChart(histogramData){
     // make data d3 friendly
-    const d3Data = Object.keys(histoData).map(d => {return {"x": d / 1, "y": histoData[d]}})
+    const rawHistogram = histogramData.data.histogram;
+    const d3Data = zip(rawHistogram.keys, rawHistogram.values).map(a => ({"x": a[0], "y": a[1]}))
         .sort((a, b) => a.x - b.x);
 
     // svg dimensions

@@ -1,8 +1,38 @@
-import {getJSON} from './utils/getJSON';
 import {makeBarChart} from './makeBarChart'
+import ApolloClient from 'apollo-boost';
+import { gql } from "apollo-boost";
 
-const url = 'http://localhost:3000';
+const url = 'http://localhost:3000/graphql';
 
-getJSON(url, res => makeBarChart(JSON.parse(res)));
+const defaultOptions = {
+    watchQuery: {
+        fetchPolicy: 'no-cache'
+    },
+    query: {
+        fetchPolicy: 'no-cache'
+    },
+};
 
-setInterval(() => getJSON(url, res => makeBarChart(JSON.parse(res))), 1000);
+const client = new ApolloClient({
+    uri: url
+});
+client.defaultOptions = defaultOptions;
+
+// getJSON(url, res => makeBarChart(JSON.parse(res)));
+
+function getData() {
+    return client.query({
+        query: gql`
+        {
+          histogram {
+            keys
+            values
+          }
+        }
+    `
+    });
+}
+
+setInterval(() => {
+    getData().then(res => makeBarChart(res));
+}, 1000);
