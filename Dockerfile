@@ -4,7 +4,7 @@ COPY package.json /app
 RUN npm install
 COPY . /app
 VOLUME /tmp
-CMD node server.js
+CMD node graphServer.js
 EXPOSE 3000
 
 

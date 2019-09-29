@@ -2,7 +2,7 @@
   "name": "serve-histogram",
   "version": "1.0.0",
   "description": "simple app to read json histogram from disk and expose on port.",
-  "main": "server.js",
+  "main": "graphServer.js",
   "scripts": {
     "watch": "webpack --watch",
     "start": "webpack --watch & webpack-dev-server --open-page 'webpack-dev-server'",
