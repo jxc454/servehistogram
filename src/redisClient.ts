@@ -7,7 +7,7 @@ const client = redis.createClient({ host: '127.0.0.1', port: 6379 });
 const { promisify } = require('util');
 const hgetallAsync = promisify(client.hgetall).bind(client);
 
-async function getHistogram() {
+export default async function getHistogram() {
     return await hgetallAsync('histogram');
 }
 
@@ -16,7 +16,3 @@ console.log(`redis client connected: ${HOST}:${PORT}`);
 client.on("error", function (err) {
     console.log("Error " + err);
 });
-
-module.exports = {
-    histogram: getHistogram
-};

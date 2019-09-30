@@ -2,11 +2,13 @@
   "name": "serve-histogram",
   "version": "1.0.0",
   "description": "simple app to read json histogram from disk and expose on port.",
-  "main": "graphServer.js",
+  "main": "src/graphServer.ts",
   "scripts": {
-    "watch": "webpack --watch",
-    "start": "webpack --watch & webpack-dev-server --open-page 'webpack-dev-server'",
-    "build": "webpack --config webpack.config.js"
+    "clean": "rm -rf dist",
+    "build": "tsc",
+    "watch:build": "tsc --watch",
+    "watch:server": "nodemon './dist/graphServer.js' --watch './dist'",
+    "start": "npm-run-all clean build --parallel watch:build watch:server --print-label"
   },
   "author": "jxc454",
   "license": "ISC",
