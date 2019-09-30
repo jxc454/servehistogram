@@ -1,4 +1,4 @@
-const redis = require('redis');
+import redis from 'redis';
 
 const HOST = process.env.REDIS_HOST || '127.0.0.1';
 const PORT = process.env.REDIS_PORT || 6379;
