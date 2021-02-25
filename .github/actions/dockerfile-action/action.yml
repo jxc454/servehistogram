@@ -1,5 +1,3 @@
-build:
-  name: Dockerfile action
 name: "Docker Actions"
 description: "Run docker"
 
@@ -11,4 +9,4 @@ inputs:
 
 runs:
   using: "docker"
-  image: "Dockerfile"
+  image: "../../../Dockerfile"

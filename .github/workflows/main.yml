@@ -2,10 +2,13 @@ name: Main workflow
 on: push
 jobs:
   build:
-    name: Dockerfile action
+    name: Dockerfile-action
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./.github/actions
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/dockerfile-action
         with:
-          MY_NAME: "Sharona"
+          A_NAME: "Sharona"

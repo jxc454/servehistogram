@@ -8,5 +8,5 @@
 #EXPOSE 3000
 
 FROM node:12
-#CMD node --help > help.log
-CMD echo HELLO ${A_NAME}
+RUN mkdir reports
+CMD echo '<!DOCTYPE html><html><body><h1>'HELLO ${INPUT_A_NAME}'</h1><p>'$(date)'</p></body></html>' > reports/report.html
