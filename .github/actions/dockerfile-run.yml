@@ -1,0 +1,14 @@
+build:
+  name: Dockerfile action
+name: "Docker Actions"
+description: "Run docker"
+
+inputs:
+  A_NAME:
+    description: "Who to greet"
+    required: true
+    default: "JCC"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
