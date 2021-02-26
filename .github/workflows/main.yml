@@ -9,6 +9,8 @@ jobs:
         working-directory: .
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/dockerfile-action
-        with:
-          A_NAME: "Sharona"
+      - name: Run Makefile
+        env:
+          INPUT_A_NAME: ${{ secrets.INPUT_A_NAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make push-report
